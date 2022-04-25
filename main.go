@@ -1,25 +1,23 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 
-    "github.com/mmcdole/gofeed"
+	"github.com/mmcdole/gofeed"
 )
 
 func main() {
 
+	fp := gofeed.NewParser()
 
-fp := gofeed.NewParser()
+	feed, _ := fp.ParseURL("https://dev.to/feed/kcdchennai")
 
-feed, _ := fp.ParseURL("https://dev.to/feed/kcdchennai")
+	for _, item := range feed.Items {
 
-
-for _, item := range feed.Items {
-
-	fmt.Println(item.Title)
-	fmt.Println(item.Link)
-	fmt.Println(item.Published)
-	fmt.Println(item.Author)
+		fmt.Println(item.Title)
+		fmt.Println(item.Link)
+		fmt.Println(item.Published)
+		fmt.Println(item.Author)
 
 	}
 
