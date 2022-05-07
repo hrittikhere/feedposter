@@ -7,7 +7,9 @@ import (
 	"github.com/dghubble/oauth1"
 )
 
-func main() {
+
+
+func AuthenticateTwitter() ( *twitter.Client, error) {
 
 	const ConsumerKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 	const ConsumerSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
@@ -22,7 +24,13 @@ func main() {
 	// twitter client
 	Client := twitter.NewClient(httpClient)
 
-	// post tweet with media
+	return Client, nil
+}
+
+func PublishToTwitter(){	
+
+	Client, _ := AuthenticateTwitter()
+
 	Response, _, _ := Client.Statuses.Update("Hello World @hrittikhere yo !", nil)
 	fmt.Println(Response, "Posted")
 }
