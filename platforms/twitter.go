@@ -28,5 +28,7 @@ func PublishToTwitter(Tweet string) (string, error) {
 
 	Response, _, _ := Client.Statuses.Update(Tweet, nil)
 
-	return Response.IDStr, nil
+	TweetId := Response.IDStr
+
+	return TweetId, nil
 }
