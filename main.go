@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mmcdole/gofeed"
 	"github.com/hrittikhere/feedposter/platforms"
+	"github.com/mmcdole/gofeed"
 )
 
 func main() {
@@ -22,12 +22,19 @@ func main() {
 		PublishedTime := item.PublishedParsed
 		ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 4 {
+		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 24 {
 			// 0 */4 * * *
-			fmt.Println(item.Title)
-			fmt.Println(item.Link)
-			fmt.Println(item.Author)
-			fmt.Println("------------------------------------------------")
+			PostTitle := item.Title
+			PostLink := item.Link
+			PostAuthor := item.Author.Name
+			// Category := item.Categories[0]
+
+			Tweet := fmt.Sprintf("%s was published by %s 🎉🎉🎉 \n %s ", PostTitle, PostAuthor, PostLink)
+
+			TweeetId, _ := cmd.PublishToTwitter(Tweet)
+
+			fmt.Println(TweeetId, "Posted")
+
 		}
 
 	}

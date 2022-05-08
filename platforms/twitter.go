@@ -1,15 +1,11 @@
-package main
+package cmd
 
 import (
-	"fmt"
-
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
 )
 
-
-
-func AuthenticateTwitter() ( *twitter.Client, error) {
+func AuthenticateTwitter() (*twitter.Client, error) {
 
 	const ConsumerKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 	const ConsumerSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
@@ -21,16 +17,16 @@ func AuthenticateTwitter() ( *twitter.Client, error) {
 
 	httpClient := Config.Client(oauth1.NoContext, Token)
 
-	// twitter client
 	Client := twitter.NewClient(httpClient)
 
 	return Client, nil
 }
 
-func PublishToTwitter(){	
+func PublishToTwitter(Tweet string) (string, error) {
 
 	Client, _ := AuthenticateTwitter()
 
-	Response, _, _ := Client.Statuses.Update("Hello World @hrittikhere yo !", nil)
-	fmt.Println(Response, "Posted")
+	Response, _, _ := Client.Statuses.Update(Tweet, nil)
+
+	return Response.IDStr, nil
 }
