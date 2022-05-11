@@ -3,9 +3,10 @@ package cmd
 import (
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
+	"log"
 )
 
-func AuthenticateTwitter() (*twitter.Client, error) {
+func AuthenticateTwitter() (*twitter.Client) {
 
 	const ConsumerKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 	const ConsumerSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
@@ -19,14 +20,18 @@ func AuthenticateTwitter() (*twitter.Client, error) {
 
 	Client := twitter.NewClient(httpClient)
 
-	return Client, nil
+	return Client
 }
 
 func PublishToTwitter(Tweet string) (string, error) {
 
-	Client, _ := AuthenticateTwitter()
+	Client := AuthenticateTwitter()
 
-	Response, _, _ := Client.Statuses.Update(Tweet, nil)
+
+	Response, _, err := Client.Statuses.Update(Tweet, nil)
+	if err != nil {
+		log.Fatal("Failed Tweet ",err)
+	}
 
 	TweetId := Response.IDStr
 
