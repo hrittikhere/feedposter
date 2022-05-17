@@ -23,7 +23,7 @@ jobs:
         env:
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_KEY }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_SECRET }}
         run: go run main.go
 
