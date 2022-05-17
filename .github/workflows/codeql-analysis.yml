@@ -71,5 +71,3 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       
-    - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v3.2.0
