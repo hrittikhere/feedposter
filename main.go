@@ -29,11 +29,11 @@ func main() {
 			PostAuthor := item.Author.Name
 			// Category := item.Categories[0]
 
-			Tweet := fmt.Sprintf("%s was published by %s 🎉🎉🎉 \n %s ", PostTitle, PostAuthor, PostLink)
+			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s ", PostTitle, PostAuthor, PostLink)
 
 			TweeetId, _ := cmd.PublishToTwitter(Tweet)
 
-			fmt.Println(TweeetId, "Posted")
+			fmt.Printf("%s with the TweetID: %s was posted! ✔️ \n ",PostTitle, TweeetId)
 
 		}
 
