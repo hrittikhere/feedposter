@@ -1,6 +1,6 @@
 name: Publisher
 
-on: push
+# on: push
 
 # on:
 #   schedule:
