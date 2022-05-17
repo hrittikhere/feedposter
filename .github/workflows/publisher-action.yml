@@ -1,0 +1,29 @@
+name: Publisher
+
+on: push
+
+# on:
+#   schedule:
+#     - cron: '0 */6 * * *'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Content 
+        uses: actions/checkout@v3
+
+      - name: Setup Go 
+        uses: actions/setup-go@v3
+        with:
+          go-version: "1.18.1"
+            
+      - name: Run Application
+        env:
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+        run: go run main.go
+
