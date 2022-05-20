@@ -32,7 +32,7 @@ func main() {
 
 			hashtags, _ := GetHastags(Category)
 
-			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s ", PostTitle, PostAuthor, hashtags, PostLink)
+			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
 			TweeetId, _ := cmd.PublishToTwitter(Tweet)
 

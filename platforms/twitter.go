@@ -10,10 +10,22 @@ import (
 
 func authenticateTwitter() *twitter.Client {
 
-	ConsumerKey := os.Getenv("CONSUMER_KEY")
-	ConsumerSecret := os.Getenv("CONSUMER_SECRET")
-	AccessToken := os.Getenv("ACCESS_TOKEN")
-	AccessSecret := os.Getenv("ACCESS_TOKEN_SECRET")
+	ConsumerKey, ConsumerKeyError := os.LookupEnv("CONSUMER_KEY")
+	if !ConsumerKeyError {
+		log.Fatal("CONSUMER_KEY Not Available ❌ Add it to GitHub Secrets ")
+	}
+	ConsumerSecret, ConsumerSecretError := os.LookupEnv("CONSUMER_SECRET")
+	if !ConsumerSecretError {
+		log.Fatal("CONSUMER_SECRET Not Available ❌ Add it to GitHub Secrets ")
+	}
+	AccessToken, AccessTokenError := os.LookupEnv("ACCESS_TOKEN")
+	if !AccessTokenError {
+		log.Fatal("ACCESS_TOKEN Not Available ❌ Add it to GitHub Secrets ")
+	}
+	AccessSecret, AccessSecretError := os.LookupEnv("ACCESS_TOKEN_SECRET")
+	if !AccessSecretError {
+		log.Fatal("ACCESS_TOKEN_SECRET Not Available ❌ Add it to GitHub Secrets ")
+	}
 
 	Config := oauth1.NewConfig(ConsumerKey, ConsumerSecret)
 	Token := oauth1.NewToken(AccessToken, AccessSecret)
