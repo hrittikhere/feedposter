@@ -8,7 +8,7 @@ import (
 	"github.com/dghubble/oauth1"
 )
 
-func AuthenticateTwitter() *twitter.Client {
+func authenticateTwitter() *twitter.Client {
 
 	ConsumerKey := os.Getenv("CONSUMER_KEY")
 	ConsumerSecret := os.Getenv("CONSUMER_SECRET")
@@ -27,7 +27,7 @@ func AuthenticateTwitter() *twitter.Client {
 
 func PublishToTwitter(Tweet string) (string, error) {
 
-	Client := AuthenticateTwitter()
+	Client := authenticateTwitter()
 
 	Response, _, err := Client.Statuses.Update(Tweet, nil)
 	if err != nil {
