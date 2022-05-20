@@ -22,8 +22,7 @@ func main() {
 		PublishedTime := item.PublishedParsed
 		ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 48 {
-			// 0 */4 * * *
+		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 6 {
 
 			PostTitle := item.Title
 			PostLink := item.Link
