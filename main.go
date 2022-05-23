@@ -22,21 +22,34 @@ func main() {
 		PublishedTime := item.PublishedParsed
 		ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 24 {
-			// 0 */4 * * *
+		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 6 {
+
 			PostTitle := item.Title
 			PostLink := item.Link
 			PostAuthor := item.Author.Name
-			// Category := item.Categories[0]
+			Category := item.Categories
 
-			Tweet := fmt.Sprintf("%s was published by %s 🎉🎉🎉 \n %s ", PostTitle, PostAuthor, PostLink)
+			hashtags, _ := GetHastags(Category)
+
+			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
 			TweeetId, _ := cmd.PublishToTwitter(Tweet)
 
-			fmt.Println(TweeetId, "Posted")
+			fmt.Printf("%s with the TweetID: %s was posted! ✔️ \n ", PostTitle, TweeetId)
 
 		}
 
 	}
 
+}
+
+func GetHastags(Categories []string) (string, error) {
+
+	var Category string
+
+	for _, element := range Categories {
+		Category += "#" + element + " "
+	}
+
+	return Category, nil
 }
