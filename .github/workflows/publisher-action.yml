@@ -1,8 +1,8 @@
 name: Publisher
 
-on:
-  schedule:
-    - cron: '0 */6 * * *'
+#on:
+#  schedule:
+#    - cron: '0 */6 * * *'
 
 jobs:
   build:
