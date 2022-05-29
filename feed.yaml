@@ -1,7 +1,7 @@
 monitor:
   - feed:
     - item:
-      name: KCDChennai
+      name: KCD Chennai
       feed_url: https://dev.to/feed/kcdchennai
     # - item:
     #   name: Name
