@@ -1,4 +1,4 @@
-package cmd
+package extractor
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package cmd
+package platforms
 
 import (
 	"log"
