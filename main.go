@@ -19,11 +19,10 @@ func main() {
 
 	data := extractor.GetFeedURL(file)
 
-	for _, feed1 := range data {
-		fmt.Println(feed1)
+	for _, FeedURL := range data {
 		fp := gofeed.NewParser()
 
-		feed, _ := fp.ParseURL(feed1)
+		feed, _ := fp.ParseURL(FeedURL)
 
 		for _, item := range feed.Items {
 
@@ -33,7 +32,7 @@ func main() {
 			PublishedTime := item.PublishedParsed
 			ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-			if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 60 {
+			if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 48 {
 
 				PostTitle := item.Title
 				PostLink := item.Link
@@ -42,7 +41,7 @@ func main() {
 
 				hashtags, _ := GetHastags(Category)
 
-				Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
+				Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s TEST: @hrittikhere \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
 				TweeetId, _ := platforms.PublishToTwitter(Tweet)
 
