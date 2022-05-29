@@ -34,8 +34,12 @@ func main(){
 		fmt.Println("Error parsing config file: ", err)
 	}
 
-
-	for _,feed := range monitor. {
-		fmt.Print(feed)
+	// fmt.Println(monitor.Monitor[0].Feed[0].FeedUrl)
+	for _,feed := range monitor.Monitor {
+		for _, item := range feed.Feed{
+			fmt.Println(item.FeedUrl)
+		}
 	}
+
+	// for _,feed := range monitor.
 }
