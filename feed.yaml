@@ -1,0 +1,8 @@
+monitor:
+  - feed:
+    - item:
+      name: Airship
+      feed_url: https://www.airshipit.org/
+    - item:
+      name: Airship
+      feed_url: https://www.airshipit.org/

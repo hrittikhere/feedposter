@@ -1,55 +1,55 @@
-package main
+// package main
 
-import (
-	"fmt"
-	"time"
+// import (
+// 	"fmt"
+// 	"time"
 
-	"github.com/hrittikhere/feedposter/platforms"
-	"github.com/mmcdole/gofeed"
-)
+// 	"github.com/hrittikhere/feedposter/platforms"
+// 	"github.com/mmcdole/gofeed"
+// )
 
-func main() {
+// func main() {
 
-	fp := gofeed.NewParser()
+// 	fp := gofeed.NewParser()
 
-	feed, _ := fp.ParseURL("https://dev.to/feed/kcdchennai")
+// 	feed, _ := fp.ParseURL("https://dev.to/feed/kcdchennai")
 
-	for _, item := range feed.Items {
+// 	for _, item := range feed.Items {
 
-		NowTime := time.Now()
-		ParsedNowTime := time.Unix(NowTime.Unix(), 0)
+// 		NowTime := time.Now()
+// 		ParsedNowTime := time.Unix(NowTime.Unix(), 0)
 
-		PublishedTime := item.PublishedParsed
-		ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
+// 		PublishedTime := item.PublishedParsed
+// 		ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 6 {
+// 		if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 6 {
 
-			PostTitle := item.Title
-			PostLink := item.Link
-			PostAuthor := item.Author.Name
-			Category := item.Categories
+// 			PostTitle := item.Title
+// 			PostLink := item.Link
+// 			PostAuthor := item.Author.Name
+// 			Category := item.Categories
 
-			hashtags, _ := GetHastags(Category)
+// 			hashtags, _ := GetHastags(Category)
 
-			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
+// 			Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
-			TweeetId, _ := cmd.PublishToTwitter(Tweet)
+// 			TweeetId, _ := cmd.PublishToTwitter(Tweet)
 
-			fmt.Printf("%s with the TweetID: %s was posted! ✔️ \n ", PostTitle, TweeetId)
+// 			fmt.Printf("%s with the TweetID: %s was posted! ✔️ \n ", PostTitle, TweeetId)
 
-		}
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
-func GetHastags(Categories []string) (string, error) {
+// func GetHastags(Categories []string) (string, error) {
 
-	var Category string
+// 	var Category string
 
-	for _, element := range Categories {
-		Category += "#" + element + " "
-	}
+// 	for _, element := range Categories {
+// 		Category += "#" + element + " "
+// 	}
 
-	return Category, nil
-}
+// 	return Category, nil
+// }
