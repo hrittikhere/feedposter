@@ -1,8 +1,8 @@
 monitor:
   - feed:
     - item:
-      name: Airship
+      name: KCDChennai
       feed_url: https://dev.to/feed/kcdchennai
     # - item:
-    #   name: Airship
-    #   feed_url: https://dev.to/feed/kcdchennai
+    #   name: Name
+    #   feed_url: URL
