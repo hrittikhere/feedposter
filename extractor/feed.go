@@ -1,9 +1,8 @@
-package main
+package cmd
 
 import (
 	"fmt"
 	"gopkg.in/yaml.v3"
-	"io/ioutil"
 )
 
 type MonitorSchema struct {
@@ -20,26 +19,22 @@ type Feed struct {
 	Item    interface{} `yaml:"item"`
 }
 
-func main(){
+func GetFeedURL(data []byte) []string {
 
-	file, err := ioutil.ReadFile("feed.yaml")
-	if err != nil {
-		fmt.Println("Error reading config file: ", err)
-	}
+	var ParserURI []string
 
 	var monitor MonitorSchema
 
-	err = yaml.Unmarshal(file, &monitor)
+	err := yaml.Unmarshal(data, &monitor)
 	if err != nil {
 		fmt.Println("Error parsing config file: ", err)
 	}
 
-	// fmt.Println(monitor.Monitor[0].Feed[0].FeedUrl)
-	for _,feed := range monitor.Monitor {
-		for _, item := range feed.Feed{
-			fmt.Println(item.FeedUrl)
+	for _, feed := range monitor.Monitor {
+		for _, item := range feed.Feed {
+			ParserURI = append(ParserURI, item.FeedUrl)
 		}
 	}
 
-	// for _,feed := range monitor.
+	return ParserURI
 }

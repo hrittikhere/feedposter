@@ -2,7 +2,7 @@ monitor:
   - feed:
     - item:
       name: Airship
-      feed_url: https://www.airshipit.org/
-    - item:
-      name: Airship
-      feed_url: https://www.airshipit.org/
+      feed_url: https://dev.to/feed/kcdchennai
+    # - item:
+    #   name: Airship
+    #   feed_url: https://dev.to/feed/kcdchennai
