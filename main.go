@@ -32,7 +32,7 @@ func main() {
 			PublishedTime := item.PublishedParsed
 			ParsedPublishedTime := time.Unix(PublishedTime.Unix(), 0)
 
-			if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 48 {
+			if ParsedNowTime.Sub(ParsedPublishedTime).Hours() < 6 {
 
 				PostTitle := item.Title
 				PostLink := item.Link
@@ -41,7 +41,7 @@ func main() {
 
 				hashtags, _ := GetHastags(Category)
 
-				Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s TEST: @hrittikhere \n %s", PostTitle, PostAuthor, hashtags, PostLink)
+				Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
 				TweeetId, _ := platforms.PublishToTwitter(Tweet)
 
