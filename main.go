@@ -43,7 +43,7 @@ func main() {
 
 				Tweet := fmt.Sprintf("%s was published by %s  🎉🎉🎉 \n %s \n %s", PostTitle, PostAuthor, hashtags, PostLink)
 
-				TweeetId, _ := platforms.PublishToTwitter(Tweet)
+				TweeetId, _ := platform.PublishToTwitter(Tweet)
 
 				fmt.Printf("%s with the TweetID: %s was posted! ✔️ \n ", PostTitle, TweeetId)
 
