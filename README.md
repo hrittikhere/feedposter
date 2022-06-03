@@ -14,7 +14,7 @@ An Automation Engine to watch RSS Feeds and post them to Twitter! Runs on GitHub
       name: KCD Chennai
       feed_url: https://dev.to/feed/kcdchennai
 ```
-3. Get Tokens from Twitter with Elavated Access and it to Secrets on Repository Settings. The required tokens are:
+3. Get Tokens from Twitter with Elevated Access and it to Secrets on Repository Settings. The required tokens are:
     1. ACCESS_TOKEN_SECRET 
     2. ACCESS_TOKEN 
     3. CONSUMER_SECRET 
