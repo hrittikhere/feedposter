@@ -20,7 +20,7 @@ An Automation Engine to watch RSS Feeds and post them to Twitter! Runs on GitHub
     2. ACCESS_TOKEN 
     3. CONSUMER_SECRET 
     4. CONSUMER_KEY 
-4. The workflow will be running every 6 hours 
+4. The workflow will be running every 6 hours without any configuration 
 
 
 
