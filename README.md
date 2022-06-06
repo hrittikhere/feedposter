@@ -1,5 +1,5 @@
-# Feedposter
-[![Go Report Card](https://goreportcard.com/badge/github.com/hrittikhere/feedposter)](https://goreportcard.com/report/github.com/hrittikhere/feedposter)
+# Feedposter [![Go Report Card](https://goreportcard.com/badge/github.com/hrittikhere/feedposter)](https://goreportcard.com/report/github.com/hrittikhere/feedposter)
+
 
 An Automation Engine to watch RSS Feeds and post them to Twitter! Runs on GitHub Actions without any database 🎯
 
