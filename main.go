@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"time"
 
 	"github.com/hrittikhere/feedposter/extractor"
@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	file, err := ioutil.ReadFile("feed.yaml")
+	file, err := os.ReadFile("feed.yaml")
 	if err != nil {
 		fmt.Println("Error reading config file: ", err)
 	}
